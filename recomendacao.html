@@ -1,0 +1,49 @@
+<!-- recommendations.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Recomendações de Carreira</title>
+</head>
+<body>
+    <h1>Trilha de Carreira</h1>
+    <div id="step-by-step"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const recommendations = JSON.parse(localStorage.getItem('recommendations'));
+            
+            if (recommendations) {
+                const stepByStepDiv = document.getElementById("step-by-step");
+
+                // Exemplo: Exibindo passo a passo
+                recommendations.forEach((step, index) => {
+                    const stepElement = document.createElement("div");
+                    stepElement.classList.add("step");
+
+                    const stepTitle = document.createElement("h2");
+                    stepTitle.textContent = `Passo ${index + 1}: ${step.title}`;
+                    stepElement.appendChild(stepTitle);
+
+                    const stepDescription = document.createElement("p");
+                    stepDescription.textContent = step.description;
+                    stepElement.appendChild(stepDescription);
+
+                    const institutionInfo = document.createElement("p");
+                    institutionInfo.innerHTML = `Instituição: <strong>${step.institution.name}</strong><br>
+                        Cursos: ${step.institution.courses.join(", ")}<br>
+                        Contato: ${step.institution.contact}<br>
+                        Site: <a href="${step.institution.website}" target="_blank">${step.institution.website}</a>`;
+                    stepElement.appendChild(institutionInfo);
+
+                    stepByStepDiv.appendChild(stepElement);
+                });
+            } else {
+                alert("Sem recomendações disponíveis.");
+            }
+        });
+    </script>
+</body>
+</html>

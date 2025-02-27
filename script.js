@@ -11,11 +11,13 @@ document.getElementById("area").addEventListener("change", function() {
 
     // Opções de cursos por área
     const coursesByArea = {
-        tecnologia: ["Desenvolvimento Web", "Ciência de Dados", "Cibersegurança"],
-        saude: ["Biomedicina", "Enfermagem", "Fisioterapia", "Farmácia"],
-        engenharia: ["Engenharia Civil", "Engenharia Mecânica", "Engenharia Elétrica"],
-        negocios: ["Administração", "Marketing", "Finanças"],
-        beleza: ["Estética"]
+        ArteDesign: ["Design Gráfico", "Design de Moda", "Artes Visuais", "Arquitetura e Urbanismo", "Design de Games"],
+        tecnologia: ["Desenvolvimento de Software", "Desenvolvimento Web", "Ciência de Dados", "Cibersegurança", "Inteligência Artificial"],
+        saude: ["Biomedicina", "Enfermagem", "Fisioterapia", "Farmácia", "Medicina", "Psicologia"],
+        engenharia: ["Engenharia Civil", "Engenharia Mecânica", "Engenharia Elétrica", "Engenharia Ambiental"],
+        negocios: ["Administração", "Contabilidade", "Finanças", "Recursos Humanos"],
+        beleza: ["Estética", "Cabeleireiro", "Manicure e Pedicure", "Cosmetologia"],
+        marketing: ["Marketing Digital", "Publicidade e Propaganda", "Jornalismo", "Relações Públicas"]
     };
 
     if (selectedArea) {
