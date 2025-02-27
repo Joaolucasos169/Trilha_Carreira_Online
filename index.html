@@ -1,0 +1,59 @@
+ <!-- Página principal -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Trilha</title>
+</head>
+<body>
+    <h1>Descubra sua trilha de carreira</h1>
+    <form id="career-form">
+        <input type="text" id="name" placeholder="Nome" required>
+        <input type="number" id="age" placeholder="Idade" required>
+        <input type="text" id="city" placeholder="Cidade" required>
+        
+        <!-- Área de interesse -->
+        <label for="area">Área de Interesse:</label>
+        <select id="area" required>
+            <option value="">Selecione uma área</option>
+            <option value="tecnologia">Tecnologia</option>
+            <option value="saude">Saúde</option>
+            <option value="engenharia">Engenharia</option>
+            <option value="negocios">Negócios</option>
+            <option value="beleza">Beleza</option>
+        </select>
+
+        <!-- Campo de seleção de curso, inicialmente oculto -->
+        <label for="course" id="course-label" style="display:none;">Escolha um curso:</label>
+        <select id="course" style="display:none;" required></select>
+
+        <!-- Escolaridade -->
+        <label for="education">Escolaridade:</label>
+        <select id="education" required>
+            <optgroup label="Ensino Fundamental">
+                <option value="fundamental_cursando">Cursando</option>
+                <option value="fundamental_incompleto">Incompleto</option>
+                <option value="fundamental_completo">Completo</option>
+            </optgroup>
+            <optgroup label="Ensino Médio">
+                <option value="medio_cursando">Cursando</option>
+                <option value="medio_incompleto">Incompleto</option>
+                <option value="medio_completo">Completo</option>
+            </optgroup>
+            <optgroup label="Ensino Superior">
+                <option value="superior_cursando">Cursando</option>
+                <option value="superior_incompleto">Incompleto</option>
+                <option value="superior_completo">Completo</option>
+            </optgroup>
+        </select>
+
+        <button type="submit">Descobrir Caminho</button>
+    </form>
+
+    <div id="recommendations"></div>
+    <script src="script.js"></script>
+</body>
+</html>
