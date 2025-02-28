@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     alert("Bem-vindo ao sistema!");
 });
+
 document.getElementById("area").addEventListener("change", function() {
     const courseSelect = document.getElementById("course");
     const courseLabel = document.getElementById("course-label");
@@ -49,12 +50,9 @@ document.getElementById("career-form").addEventListener("submit", async function
         education: document.getElementById("education").value
     };
 
-    const response = await fetch("https://meu-backend.back4app.io/recommend", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(userData)
-    });
-
-    const result = await response.json();
-    document.getElementById("recommendations").innerHTML = `<h2>Recomendações:</h2> <p>${result.recommendations}</p>`;
+    // Salva os dados no localStorage para serem usados na página de recomendações
+    localStorage.setItem("userData", JSON.stringify(userData));
+    
+    // Redireciona para a página de recomendações
+    window.location.href = "recomendacao.html";
 });

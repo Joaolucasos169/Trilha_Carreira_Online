@@ -1,4 +1,4 @@
-<!-- recommendations.html -->
+<!-- recomendacao.html -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,41 +8,31 @@
     <title>Recomendações de Carreira</title>
 </head>
 <body>
-    <h1>Trilha de Carreira</h1>
-    <div id="step-by-step"></div>
-
+    <h1>Sua Trilha de Carreira</h1>
+    <div id="step-by-step">
+        <h2>Passo a Passo para sua Carreira</h2>
+        <div id="recommendations"></div>
+    </div>
+    <script src="recomendacao.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const recommendations = JSON.parse(localStorage.getItem('recommendations'));
+        document.addEventListener("DOMContentLoaded", async function() {
+            const response = await fetch("https://meu-backend.back4app.io/recommend");
+            const data = await response.json();
+            const recommendationsDiv = document.getElementById("recommendations");
             
-            if (recommendations) {
-                const stepByStepDiv = document.getElementById("step-by-step");
-
-                // Exemplo: Exibindo passo a passo
-                recommendations.forEach((step, index) => {
-                    const stepElement = document.createElement("div");
-                    stepElement.classList.add("step");
-
-                    const stepTitle = document.createElement("h2");
-                    stepTitle.textContent = `Passo ${index + 1}: ${step.title}`;
-                    stepElement.appendChild(stepTitle);
-
-                    const stepDescription = document.createElement("p");
-                    stepDescription.textContent = step.description;
-                    stepElement.appendChild(stepDescription);
-
-                    const institutionInfo = document.createElement("p");
-                    institutionInfo.innerHTML = `Instituição: <strong>${step.institution.name}</strong><br>
-                        Cursos: ${step.institution.courses.join(", ")}<br>
-                        Contato: ${step.institution.contact}<br>
-                        Site: <a href="${step.institution.website}" target="_blank">${step.institution.website}</a>`;
-                    stepElement.appendChild(institutionInfo);
-
-                    stepByStepDiv.appendChild(stepElement);
-                });
-            } else {
-                alert("Sem recomendações disponíveis.");
-            }
+            data.recommendations.forEach(rec => {
+                const recElement = document.createElement("div");
+                recElement.classList.add("step");
+                recElement.innerHTML = `
+                    <h2>${rec.nome}</h2>
+                    <p><strong>Carga Horária:</strong> ${rec.carga_horaria}</p>
+                    <p><strong>Instituição:</strong> ${rec.instituicao}</p>
+                    <p><strong>Endereço:</strong> ${rec.endereco}</p>
+                    <p><strong>Contato:</strong> ${rec.contato}</p>
+                    <p><strong>Site:</strong> <a href="${rec.site}" target="_blank">${rec.site}</a></p>
+                `;
+                recommendationsDiv.appendChild(recElement);
+            });
         });
     </script>
 </body>
