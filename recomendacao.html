@@ -13,23 +13,60 @@
         <h2>Passo a Passo para sua Carreira</h2>
         <div id="recommendations"></div>
     </div>
-    <script src="recomendacao.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", async function() {
-            const response = await fetch("https://meu-backend.back4app.io/recommend");
-            const data = await response.json();
-            const recommendationsDiv = document.getElementById("recommendations");
+        document.addEventListener("DOMContentLoaded", function() {
+            const recommendations = [
+                {
+                    passo: 1,
+                    nome: "Informática Básica",
+                    carga_horaria: "66h",
+                    instituicao: "Senac Centro | Fortaleza",
+                    contato: "(85) 3270-5400",
+                    site: "https://cursos.ce.senac.br/produto/informatica-basica-centro-noite-2025-07-225/"
+                },
+                {
+                    passo: 2,
+                    nome: "Desenvolvedor Web - Curso de Qualificação Profissional",
+                    carga_horaria: "240h",
+                    instituicao: "Senac Centro | Fortaleza",
+                    contato: "(85) 3270-5400",
+                    site: "https://cursos.ce.senac.br/produto/programador-web-2025-07-70/"
+                },
+                {
+                    passo: 3,
+                    nome: "Técnico em Desenvolvimento de Sistemas",
+                    carga_horaria: "1200h",
+                    instituicao: "Senac Centro | Fortaleza",
+                    contato: "(85) 3270-5400",
+                    site: "https://cursos.ce.senac.br/produto/tecnico-em-desenvolvimento-de-sistemas/"
+                },
+                {
+                    passo: 4,
+                    nome: "Graduação em Análise e Desenvolvimento de Sistemas (ADS)",
+                    periodo: "5 semestres - 2 anos e meio",
+                    instituicao: "Senac Centro | Fortaleza",
+                    contato: "(85) 9984-0161",
+                    site: "https://www.faculdadesenacce.com.br/product/analise-e-desenvolvimento-de-sistemas/"
+                },
+                {
+                    passo: 5,
+                    nome: "Pós-Graduação em Desenvolvimento de Sistemas",
+                    carga_horaria: "360 horas (12 meses)",
+                    instituicao: "EAD - Senac",
+                    contato: "(11) 4090-1030",
+                    site: "https://www.ead.senac.br/pos-graduacao/desenvolvimento-web/"
+                }
+            ];
             
-            data.recommendations.forEach(rec => {
+            const recommendationsDiv = document.getElementById("recommendations");
+            recommendations.forEach(rec => {
                 const recElement = document.createElement("div");
                 recElement.classList.add("step");
                 recElement.innerHTML = `
-                    <h2>${rec.nome}</h2>
-                    <p><strong>Carga Horária:</strong> ${rec.carga_horaria}</p>
+                    <h2>Passo ${rec.passo}: ${rec.nome}</h2>
+                    <p><strong>Carga Horária:</strong> ${rec.carga_horaria || rec.periodo}</p>
                     <p><strong>Instituição:</strong> ${rec.instituicao}</p>
-                    <p><strong>Endereço:</strong> ${rec.endereco}</p>
-                    <p><strong>Contato:</strong> ${rec.contato}</p>
-                    <p><strong>Site:</strong> <a href="${rec.site}" target="_blank">${rec.site}</a></p>
+                    <p><strong>Site:</strong> <a href="${rec.site}" target="_blank">Acesse aqui</a></p>
                 `;
                 recommendationsDiv.appendChild(recElement);
             });
