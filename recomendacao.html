@@ -1,18 +1,15 @@
-<!-- recomendacao.html -->
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Recomendações de Carreira</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Sua Trilha de Carreira</h1>
-    <div id="step-by-step">
-        <h2>Passo a Passo para sua Carreira</h2>
-        <div id="recommendations"></div>
-    </div>
+    <h1>Recomendações de Carreira</h1>
+    <div id="recommendations"></div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const recommendations = [
@@ -22,7 +19,8 @@
                     carga_horaria: "66h",
                     instituicao: "Senac Centro | Fortaleza",
                     contato: "(85) 3270-5400",
-                    site: "https://cursos.ce.senac.br/produto/informatica-basica-centro-noite-2025-07-225/"
+                    site: "https://cursos.ce.senac.br/produto/informatica-basica-centro-noite-2025-07-225/",
+                    imagem: "images/1.jpg"
                 },
                 {
                     passo: 2,
@@ -30,7 +28,8 @@
                     carga_horaria: "240h",
                     instituicao: "Senac Centro | Fortaleza",
                     contato: "(85) 3270-5400",
-                    site: "https://cursos.ce.senac.br/produto/programador-web-2025-07-70/"
+                    site: "https://cursos.ce.senac.br/produto/programador-web-2025-07-70/",
+                    imagem: "images/2.jpg"
                 },
                 {
                     passo: 3,
@@ -38,7 +37,8 @@
                     carga_horaria: "1200h",
                     instituicao: "Senac Centro | Fortaleza",
                     contato: "(85) 3270-5400",
-                    site: "https://cursos.ce.senac.br/produto/tecnico-em-desenvolvimento-de-sistemas/"
+                    site: "https://cursos.ce.senac.br/produto/tecnico-em-desenvolvimento-de-sistemas/",
+                    imagem: "images/informatica.jpg"
                 },
                 {
                     passo: 4,
@@ -46,7 +46,8 @@
                     periodo: "5 semestres - 2 anos e meio",
                     instituicao: "Senac Centro | Fortaleza",
                     contato: "(85) 9984-0161",
-                    site: "https://www.faculdadesenacce.com.br/product/analise-e-desenvolvimento-de-sistemas/"
+                    site: "https://www.faculdadesenacce.com.br/product/analise-e-desenvolvimento-de-sistemas/",
+                    imagem: "images/3.jpg"
                 },
                 {
                     passo: 5,
@@ -54,19 +55,24 @@
                     carga_horaria: "360 horas (12 meses)",
                     instituicao: "EAD - Senac",
                     contato: "(11) 4090-1030",
-                    site: "https://www.ead.senac.br/pos-graduacao/desenvolvimento-web/"
+                    site: "https://www.ead.senac.br/pos-graduacao/desenvolvimento-web/",
+                    imagem: "images/4.jpg"
                 }
             ];
             
             const recommendationsDiv = document.getElementById("recommendations");
             recommendations.forEach(rec => {
                 const recElement = document.createElement("div");
-                recElement.classList.add("step");
+                recElement.classList.add("recommendation-card");
                 recElement.innerHTML = `
-                    <h2>Passo ${rec.passo}: ${rec.nome}</h2>
-                    <p><strong>Carga Horária:</strong> ${rec.carga_horaria || rec.periodo}</p>
-                    <p><strong>Instituição:</strong> ${rec.instituicao}</p>
-                    <p><strong>Site:</strong> <a href="${rec.site}" target="_blank">Acesse aqui</a></p>
+                    <img src="${rec.imagem}" alt="${rec.nome}">
+                    <div class="recommendation-info">
+                        <h2>Passo ${rec.passo}: ${rec.nome}</h2>
+                        <p><strong>Carga Horária:</strong> ${rec.carga_horaria || rec.periodo}</p>
+                        <p><strong>Instituição:</strong> ${rec.instituicao}</p>
+                        <p><strong>Contato:</strong> ${rec.contato}</p>
+                        <p><strong>Site:</strong> <a href="${rec.site}" target="_blank">Acesse aqui</a></p>
+                    </div>
                 `;
                 recommendationsDiv.appendChild(recElement);
             });
