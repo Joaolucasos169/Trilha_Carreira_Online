@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recomendações de Carreira</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <h1>Recomendações de Carreira</h1>
     <div id="recommendations"></div>
@@ -14,20 +16,20 @@
         <h2>Outras Instituições de Ensino</h2>
         <p>Aqui estão alguns sites que oferecem cursos gratuitos online de tecnologia:</p>
         <ul>
-            <li><a href="https://www.coursera.org/" target="_blank">Coursera</a></li>
-            <li><a href="https://www.edx.org/" target="_blank">edX</a></li>
-            <li><a href="https://www.khanacademy.org/" target="_blank">Khan Academy</a></li>
-            <li><a href="https://www.udemy.com/" target="_blank">Udemy (cursos gratuitos)</a></li>
-            <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a></li>
-            <li><a href="https://www.codecademy.com/" target="_blank">Codecademy</a></li>
+            <li><a href="https://www.eucapacito.com.br/" target="_blank">Eucapacito (curso gratuito)</a></li>
+            <li><a href="https://jd.fortaleza.ce.gov.br/cursos/" target="_blank">Juventude Digital (curso gratuito)</a></li>
+            <li><a href="https://digitalcollege.com.br/" target="_blank">Digital College</a></li>
+            <li><a href="https://www.centec.org.br/cursos/" target="_blank">Centec (cursos gratuitos)</a></li>
+            <li><a href="https://infinityschool.com.br/" target="_blank">Infinity school</a></li>
+            <li><a href="https://cursos.ce.senac.br/cursos/" target="_blank">Senac CE</a></li>
         </ul>
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const userData = JSON.parse(localStorage.getItem("userData"));
-            const course = userData.course; // Recupera o curso selecionado
-    
+            const course = userData.course; 
+
             const recommendations = {
                 desenvolvimento_web: [
                     {
@@ -73,7 +75,7 @@
                         instituicao: "EAD - Senac",
                         contato: "(11) 4090-1030",
                         site: "https://www.ead.senac.br/pos-graduacao/desenvolvimento-web/",
-                        imagem: "images/5.jpg"
+                        imagem: "images/5.png"
                     }
                 ],
                 cibersegurança: [
@@ -151,18 +153,89 @@
                         site: "https://www.senai-ce.org.br/microsoft-power-bi-32659",
                         imagem: "images/3.jpg"
                     },
-                    { passo: 4, 
-                    nome: "Ciência da Computação", 
-                    carga_horaria: "4 anos", 
-                    instituicao: "Unifor", 
-                    contato: "(85) 3477-3170", 
-                    site: "https://unifor.br/web/graduacao/ciencia-da-computacao", 
-                    imagem: "images/informatica.jpg" }
+                    {
+                        passo: 4,
+                        nome: "Ciência da Computação",
+                        carga_horaria: "4 anos",
+                        instituicao: "Unifor",
+                        contato: "(85) 3477-3170",
+                        site: "https://unifor.br/web/graduacao/ciencia-da-computacao",
+                        imagem: "images/informatica.jpg"
+                    },
+                ],
+
+                inteligência_artificial: [
+                    {
+                        passo: 1,
+                        nome: "EFICIÊNCIA PROFISSIONAL COM IA",
+                        carga_horaria: "80h",
+                        instituicao: "Senai centro",
+                        contato: "(85) 4009-6300",
+                        site: "https://www.senai-ce.org.br/eficiencia-profissional-com-ia-33418",
+                        imagem: "images/5.png"
+                    },
+                    {
+                        passo: 2,
+                        nome: "IA FOR BUSINESS - INTELIGÊNCIA ARTIFICIAL APLICADA À GESTÃO",
+                        carga_horaria: "36h",
+                        instituicao: "Senac ce",
+                        contato: "(85) 3270-5400",
+                        site: "https://cursos.ce.senac.br/produto/ia-for-business-inteligencia-artificial-aplicada-a-gestao-2025-07-92/",
+                        imagem: "images/2.jpg"
+                    },
+                    {
+                        passo: 3,
+                        nome: "Tecnologia em Inteligência Artificial",
+                        carga_horaria: "2000h",
+                        instituicao: "Senac",
+                        contato: "(85) 3270-5400",
+                        site: "https://www.faculdadesenacce.com.br/product/tecnologia-em-inteligencia-artificial/",
+                        imagem: "images/3.jpg"
+                    },
+                ],
+
+                desenvolvimento_de_software: [
+                    {
+                        passo: 1,
+                        nome: "PROGRAMADOR DE SISTEMA",
+                        carga_horaria: "200h",
+                        instituicao: "Senac CE",
+                        contato: "(85) 3270 5400",
+                        site: "https://cursos.ce.senac.br/produto/programador-de-sistema/",
+                        imagem: "images/7.png"
+                    },
+                    {
+                        passo: 2,
+                        nome: "PROGRAMADOR BACK END",
+                        carga_horaria: "450h",
+                        instituicao: "Senai centro",
+                        contato: "(85) 4009-6300",
+                        site: "https://www.senai-ce.org.br/programador-back-end-33371",
+                        imagem: "images/6.jpg"
+                    },
+                    {
+                        passo: 3,
+                        nome: "Técnico em Desenvolvimento de Sistemas",
+                        carga_horaria: "1200h",
+                        instituicao: "Senac Centro | Fortaleza",
+                        contato: "(85) 3270-5400",
+                        site: "https://cursos.ce.senac.br/produto/tecnico-em-desenvolvimento-de-sistemas/",
+                        imagem: "images/3.jpg"
+                    },
+                    {
+                        passo: 4,
+                        nome: "Engenharia de Software",
+                        carga_horaria: "8 semestres",
+                        instituicao: "EAD - UniFanor",
+                        contato: "(21) 98390-3253",
+                        site: "https://www.wyden.com.br/graduacao/engenharia-de-software",
+                        imagem: "images/8.jpg"
+                    }
                 ]
             };
-    
+
             const recommendationsDiv = document.getElementById("recommendations");
-    
+
             // Verifica se o curso selecionado existe nas recomendações
             if (recommendations[course]) {
                 recommendations[course].forEach(rec => {
@@ -186,4 +259,5 @@
         });
     </script>
 </body>
+
 </html>
