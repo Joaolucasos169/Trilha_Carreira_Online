@@ -1,4 +1,3 @@
-// Lógica de interação
 document.addEventListener("DOMContentLoaded", function() {
     alert("Bem-vindo ao sistema!");
 });
@@ -12,7 +11,7 @@ document.getElementById("area").addEventListener("change", function() {
 
     // Opções de cursos por área
     const coursesByArea = {
-        tecnologia: ["Desenvolvimento de Software", "Desenvolvimento Web", "Ciência de Dados", "Cibersegurança", "Inteligência Artificial"]
+        tecnologia: ["Desenvolvimento Web", "Cibersegurança", "Ciência de Dados", "Inteligência Artificial", "Desenvolvimento de Software"]
     };
 
     if (selectedArea) {
@@ -22,7 +21,7 @@ document.getElementById("area").addEventListener("change", function() {
         // Adiciona as opções ao campo de curso
         coursesByArea[selectedArea].forEach(course => {
             let option = document.createElement("option");
-            option.value = course.toLowerCase().replace(/\s/g, "_");
+            option.value = course.toLowerCase().replace(/\s/g, "_"); // Exemplo: "desenvolvimento_web"
             option.textContent = course;
             courseSelect.appendChild(option);
         });
@@ -40,7 +39,7 @@ document.getElementById("career-form").addEventListener("submit", async function
         age: document.getElementById("age").value,
         city: document.getElementById("city").value,
         area: document.getElementById("area").value,
-        course: document.getElementById("course").value,
+        course: document.getElementById("course").value, // Captura o curso selecionado
         education: document.getElementById("education").value
     };
 

@@ -12,8 +12,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
+    justify-content: flex-start;
+    min-height: 100vh;
     padding: 20px;
 }
 
@@ -22,6 +22,7 @@ h1 {
     margin-bottom: 20px;
     font-size: 2rem;
     color: #fff;
+    text-align: center;
 }
 
 /* Estilização do formulário */
@@ -59,7 +60,7 @@ input:focus, select:focus {
 }
 
 /* Botão de envio */
-button {
+button, .toggle-button {
     width: 100%;
     padding: 10px;
     margin-top: 15px;
@@ -73,7 +74,7 @@ button {
     transition: 0.3s;
 }
 
-button:hover {
+button:hover, .toggle-button:hover {
     background: #0077cc;
 }
 
@@ -85,7 +86,7 @@ button:hover {
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 600px;
+    max-width: 800px;
     width: 100%;
 }
 
@@ -107,7 +108,7 @@ button:hover {
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     margin: 10px 0;
-    max-width: 600px;
+    max-width: 800px;
     width: 100%;
 }
 
@@ -144,9 +145,46 @@ button:hover {
     text-decoration: underline;
 }
 
+/* Estilização da seção de links adicionais */
+#additional-links {
+    margin-top: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+#additional-links h2 {
+    color: #4facfe;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+#additional-links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#additional-links ul li {
+    margin: 10px 0;
+}
+
+#additional-links ul li a {
+    color: #0077cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#additional-links ul li a:hover {
+    text-decoration: underline;
+}
+
 /* Responsividade */
 @media (max-width: 480px) {
-    form, #recommendations {
+    form, #recommendations, #additional-links {
         max-width: 90%;
     }
 

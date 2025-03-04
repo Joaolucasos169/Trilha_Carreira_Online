@@ -10,72 +10,179 @@
     <h1>Recomendações de Carreira</h1>
     <div id="recommendations"></div>
 
+    <div id="additional-links">
+        <h2>Outras Instituições de Ensino</h2>
+        <p>Aqui estão alguns sites que oferecem cursos gratuitos online de tecnologia:</p>
+        <ul>
+            <li><a href="https://www.coursera.org/" target="_blank">Coursera</a></li>
+            <li><a href="https://www.edx.org/" target="_blank">edX</a></li>
+            <li><a href="https://www.khanacademy.org/" target="_blank">Khan Academy</a></li>
+            <li><a href="https://www.udemy.com/" target="_blank">Udemy (cursos gratuitos)</a></li>
+            <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a></li>
+            <li><a href="https://www.codecademy.com/" target="_blank">Codecademy</a></li>
+        </ul>
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const recommendations = [
-                {
-                    passo: 1,
-                    nome: "Informática Básica",
-                    carga_horaria: "66h",
-                    instituicao: "Senac Centro | Fortaleza",
-                    contato: "(85) 3270-5400",
-                    site: "https://cursos.ce.senac.br/produto/informatica-basica-centro-noite-2025-07-225/",
-                    imagem: "images/1.jpg"
-                },
-                {
-                    passo: 2,
-                    nome: "Desenvolvedor Web - Curso de Qualificação Profissional",
-                    carga_horaria: "240h",
-                    instituicao: "Senac Centro | Fortaleza",
-                    contato: "(85) 3270-5400",
-                    site: "https://cursos.ce.senac.br/produto/programador-web-2025-07-70/",
-                    imagem: "images/2.jpg"
-                },
-                {
-                    passo: 3,
-                    nome: "Técnico em Desenvolvimento de Sistemas",
-                    carga_horaria: "1200h",
-                    instituicao: "Senac Centro | Fortaleza",
-                    contato: "(85) 3270-5400",
-                    site: "https://cursos.ce.senac.br/produto/tecnico-em-desenvolvimento-de-sistemas/",
-                    imagem: "images/informatica.jpg"
-                },
-                {
-                    passo: 4,
-                    nome: "Graduação em Análise e Desenvolvimento de Sistemas (ADS)",
-                    periodo: "5 semestres - 2 anos e meio",
-                    instituicao: "Senac Centro | Fortaleza",
-                    contato: "(85) 9984-0161",
-                    site: "https://www.faculdadesenacce.com.br/product/analise-e-desenvolvimento-de-sistemas/",
-                    imagem: "images/3.jpg"
-                },
-                {
-                    passo: 5,
-                    nome: "Pós-Graduação em Desenvolvimento de Sistemas",
-                    carga_horaria: "360 horas (12 meses)",
-                    instituicao: "EAD - Senac",
-                    contato: "(11) 4090-1030",
-                    site: "https://www.ead.senac.br/pos-graduacao/desenvolvimento-web/",
-                    imagem: "images/4.jpg"
-                }
-            ];
-            
+            const userData = JSON.parse(localStorage.getItem("userData"));
+            const course = userData.course; // Recupera o curso selecionado
+    
+            const recommendations = {
+                desenvolvimento_web: [
+                    {
+                        passo: 1,
+                        nome: "Informática Básica",
+                        carga_horaria: "66h",
+                        instituicao: "Senac Centro | Fortaleza",
+                        contato: "(85) 3270-5400",
+                        site: "https://cursos.ce.senac.br/produto/informatica-basica-centro-noite-2025-07-225/",
+                        imagem: "images/1.jpg"
+                    },
+                    {
+                        passo: 2,
+                        nome: "Desenvolvedor Web - Curso de Qualificação Profissional",
+                        carga_horaria: "240h",
+                        instituicao: "Senac Centro | Fortaleza",
+                        contato: "(85) 3270-5400",
+                        site: "https://cursos.ce.senac.br/produto/programador-web-2025-07-70/",
+                        imagem: "images/2.jpg"
+                    },
+                    {
+                        passo: 3,
+                        nome: "Técnico em Desenvolvimento de Sistemas",
+                        carga_horaria: "1200h",
+                        instituicao: "Senac Centro | Fortaleza",
+                        contato: "(85) 3270-5400",
+                        site: "https://cursos.ce.senac.br/produto/tecnico-em-desenvolvimento-de-sistemas/",
+                        imagem: "images/3.jpg"
+                    },
+                    {
+                        passo: 4,
+                        nome: "Graduação em Análise e Desenvolvimento de Sistemas (ADS)",
+                        periodo: "5 semestres - 2 anos e meio",
+                        instituicao: "Senac Centro | Fortaleza",
+                        contato: "(85) 9984-0161",
+                        site: "https://www.faculdadesenacce.com.br/product/analise-e-desenvolvimento-de-sistemas/",
+                        imagem: "images/4.jpg"
+                    },
+                    {
+                        passo: 5,
+                        nome: "Pós-Graduação em Desenvolvimento de Sistemas",
+                        carga_horaria: "360 horas (12 meses)",
+                        instituicao: "EAD - Senac",
+                        contato: "(11) 4090-1030",
+                        site: "https://www.ead.senac.br/pos-graduacao/desenvolvimento-web/",
+                        imagem: "images/5.jpg"
+                    }
+                ],
+                cibersegurança: [
+                    {
+                        passo: 1,
+                        nome: "Curso Básico de Informática",
+                        carga_horaria: "66h",
+                        instituicao: "Senac Centro | Fortaleza",
+                        contato: "(85) 3270-5400",
+                        site: "https://cursos.ce.senac.br/produto/informatica-basica-centro-noite-2025-07-225/",
+                        imagem: "images/1.jpg"
+                    },
+                    {
+                        passo: 2,
+                        nome: "JAVA E ORIENTAÇÃO A OBJETOS",
+                        carga_horaria: "40h",
+                        instituicao: "SENAI Centro",
+                        contato: "(85) 4009-6300",
+                        site: "https://www.senai-ce.org.br/java-e-orientacao-a-objetos-32637",
+                        imagem: "images/2.jpg"
+                    },
+                    {
+                        passo: 3,
+                        nome: "TÉCNICO EM REDES DE COMPUTADORES - SEMIPRESENCIAL",
+                        carga_horaria: "1200h",
+                        instituicao: "SENAI Centro",
+                        contato: "(85) 4009-6300",
+                        site: "https://www.senai-ce.org.br/tecnico-em-redes-de-computadores-semipresencial-32932",
+                        imagem: "images/3.jpg"
+                    },
+                    {
+                        passo: 4,
+                        nome: "Tecnologia em Segurança da Informação",
+                        carga_horaria: "2000h",
+                        instituicao: "Senac CE",
+                        contato: "(85) 9984-0161",
+                        site: "https://www.faculdadesenacce.com.br/product/seguranca-da-informacao/",
+                        imagem: "images/4.jpg"
+                    },
+                    {
+                        passo: 5,
+                        nome: "Pós-Graduação em Segurança da Informação",
+                        carga_horaria: "12 meses",
+                        instituicao: "Estácio",
+                        contato: "(21) 98390-8414",
+                        site: "https://estacio.br/cursos/pos-graduacao/seguranca-da-informacao",
+                        imagem: "images/informatica.jpg"
+                    }
+                ],
+                ciência_de_dados: [
+                    {
+                        passo: 1,
+                        nome: "Excel Avançado",
+                        carga_horaria: "30h",
+                        instituicao: "SENAI Centro",
+                        contato: "(85) 4009-6300",
+                        site: "https://www.senai-ce.org.br/excel-avancado-32977",
+                        imagem: "images/1.jpg"
+                    },
+                    {
+                        passo: 2,
+                        nome: "Banco de Dados",
+                        carga_horaria: "60h",
+                        instituicao: "SENAI Centro",
+                        contato: "(85) 4009-6300",
+                        site: "https://www.senai-ce.org.br/banco-de-dados-33370",
+                        imagem: "images/2.jpg"
+                    },
+                    {
+                        passo: 3,
+                        nome: "Power BI",
+                        carga_horaria: "40h",
+                        instituicao: "SENAI Parangaba",
+                        contato: "(85) 4009-6300",
+                        site: "https://www.senai-ce.org.br/microsoft-power-bi-32659",
+                        imagem: "images/3.jpg"
+                    },
+                    { passo: 4, 
+                    nome: "Ciência da Computação", 
+                    carga_horaria: "4 anos", 
+                    instituicao: "Unifor", 
+                    contato: "(85) 3477-3170", 
+                    site: "https://unifor.br/web/graduacao/ciencia-da-computacao", 
+                    imagem: "images/informatica.jpg" }
+                ]
+            };
+    
             const recommendationsDiv = document.getElementById("recommendations");
-            recommendations.forEach(rec => {
-                const recElement = document.createElement("div");
-                recElement.classList.add("recommendation-card");
-                recElement.innerHTML = `
-                    <img src="${rec.imagem}" alt="${rec.nome}">
-                    <div class="recommendation-info">
-                        <h2>Passo ${rec.passo}: ${rec.nome}</h2>
-                        <p><strong>Carga Horária:</strong> ${rec.carga_horaria || rec.periodo}</p>
-                        <p><strong>Instituição:</strong> ${rec.instituicao}</p>
-                        <p><strong>Contato:</strong> ${rec.contato}</p>
-                        <p><strong>Site:</strong> <a href="${rec.site}" target="_blank">Acesse aqui</a></p>
-                    </div>
-                `;
-                recommendationsDiv.appendChild(recElement);
-            });
+    
+            // Verifica se o curso selecionado existe nas recomendações
+            if (recommendations[course]) {
+                recommendations[course].forEach(rec => {
+                    const recElement = document.createElement("div");
+                    recElement.classList.add("recommendation-card");
+                    recElement.innerHTML = `
+                        <img src="${rec.imagem}" alt="${rec.nome}">
+                        <div class="recommendation-info">
+                            <h2>Passo ${rec.passo}: ${rec.nome}</h2>
+                            <p><strong>Carga Horária:</strong> ${rec.carga_horaria || rec.periodo}</p>
+                            <p><strong>Instituição:</strong> ${rec.instituicao}</p>
+                            <p><strong>Contato:</strong> ${rec.contato}</p>
+                            <p><strong>Site:</strong> <a href="${rec.site}" target="_blank">Acesse aqui</a></p>
+                        </div>
+                    `;
+                    recommendationsDiv.appendChild(recElement);
+                });
+            } else {
+                recommendationsDiv.innerHTML = "<p>Nenhuma recomendação encontrada para o curso selecionado.</p>";
+            }
         });
     </script>
 </body>
